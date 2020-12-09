@@ -13,11 +13,13 @@ namespace app1
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    config.AddConfigServer(context.HostingEnvironment);
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder
-                        .AddConfigServer()
-                        .UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>();
                 });
     }
 }
