@@ -1,4 +1,4 @@
-﻿@inject Microsoft.Extensions.Configuration.IConfiguration config
+﻿@model HomeViewModel
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -6,6 +6,28 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
 
-    <p>key1: @config["key1"]</p>
+<div>
+    <p>key1: @Model.configuration["key1"]</p>
+    <p>configuration["Dms:Email:Server"]: @Model.configuration["Dms:Email:Server"]</p>
+    <p>configuration["Dms:Email:Port"]: @Model.configuration["Dms:Email:Port"]</p>
+    <pre>
+        <code>
+
+        example code:
+
+        using Microsoft.Extensions.Configuration;
+
+        public class MyCode
+        {
+            public MyCode(IConfiguration configuration)
+            {
+                smptEmail = new SmtpEmail(configuration["Dms:Email:Server"], configuration["Dms:Email:Port"]);
+                // ...
+            }
+        }
+
+        </code>
+    </pre>
 </div>
