@@ -1,0 +1,4 @@
+Dms:
+  Email:
+    Server: hello-prod.email.sg
+    Port: 25

@@ -1,0 +1,13 @@
+key1: apples
+Dms:
+  Email:
+    Server: hello.email.sg
+    Port: 25
+
+---
+
+spring:
+  profiles: qas
+Dms:
+  Email:
+    Port: 5522
